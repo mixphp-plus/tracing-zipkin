@@ -19,7 +19,6 @@ use OpenTracing\StartSpanOptions;
 use OpenTracing\Tag;
 use Zipkin\DefaultTracing;
 use Zipkin\Propagation\DefaultSamplingFlags;
-use Zipkin\Propagation\TraceContext;
 
 /**
  * Class Tracer
@@ -96,7 +95,7 @@ class Tracer implements \OpenTracing\Tracer
     {
         $endpoint      = \Zipkin\Endpoint::create($this->serviceName, $this->ipv4, $this->ipv6, $this->port);
         $sampler       = \Zipkin\Samplers\PercentageSampler::create((float)$this->rate);
-        $reporter      = new \Zipkin\Reporters\Http(\MixPlus\Tracing\Zipkin\Reporter\GuzzleFactory::create(), [
+        $reporter      = new \Zipkin\Reporters\Http([
             'endpoint_url' => $this->url,
             "timeout"      => $this->timeout,
         ]);

@@ -7,12 +7,19 @@ Zipkin 调用链追踪库，基于 Opentracing 标准
 安装：
 
 ```
-composer require mix/tracing-zipkin
+composer require mix-plus/tracing-zipkin
 ```
 
 支持的 zipkin 版本：
 
-- V2
+- V3
+
+# 使用
+中间件直接引入
+```php
+$func = \App\Middleware\TracingWebServer::middleware();
+$vega->handle('/hello', $func, [new Hello(), 'index'])->methods('GET');
+```
 
 文档：
 
