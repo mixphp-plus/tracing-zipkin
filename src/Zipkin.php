@@ -1,12 +1,12 @@
 <?php
 
-namespace Mix\Tracing\Zipkin;
+namespace MixPlus\Tracing\Zipkin;
 
 use OpenTracing\NoopTracer;
 
 /**
  * Class Zipkin
- * @package Mix\Tracing\Zipkin
+ * @package MixPlus\Tracing\Zipkin
  */
 class Zipkin
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Mix\Tracing\Zipkin;
+namespace MixPlus\Tracing\Zipkin;
 
 use Mix\Bean\BeanInjector;
-use Mix\Tracing\Zipkin\Exception\NotFoundException;
-use Mix\Tracing\Zipkin\Exception\UnavailableException;
+use MixPlus\Tracing\Zipkin\Exception\NotFoundException;
+use MixPlus\Tracing\Zipkin\Exception\UnavailableException;
 use OpenTracing\Exceptions\InvalidReferencesSet;
 use OpenTracing\Exceptions\InvalidSpanOption;
 use OpenTracing\Exceptions\UnsupportedFormat;
@@ -23,7 +23,7 @@ use Zipkin\Propagation\TraceContext;
 
 /**
  * Class Tracer
- * @package Mix\Tracing\Zipkin
+ * @package MixPlus\Tracing\Zipkin
  */
 class Tracer implements \OpenTracing\Tracer
 {
@@ -96,7 +96,7 @@ class Tracer implements \OpenTracing\Tracer
     {
         $endpoint      = \Zipkin\Endpoint::create($this->serviceName, $this->ipv4, $this->ipv6, $this->port);
         $sampler       = \Zipkin\Samplers\PercentageSampler::create((float)$this->rate);
-        $reporter      = new \Zipkin\Reporters\Http(\Mix\Tracing\Zipkin\Reporter\GuzzleFactory::create(), [
+        $reporter      = new \Zipkin\Reporters\Http(\MixPlus\Tracing\Zipkin\Reporter\GuzzleFactory::create(), [
             'endpoint_url' => $this->url,
             "timeout"      => $this->timeout,
         ]);
@@ -163,7 +163,7 @@ class Tracer implements \OpenTracing\Tracer
         }
 
         $subSpan = $this->tracer->newChild($this->rootSpan->getContext());
-        $span    = new \Mix\Tracing\Zipkin\Span\Span($this, $subSpan, $operationName);
+        $span    = new \MixPlus\Tracing\Zipkin\Span\Span($this, $subSpan, $operationName);
 
         if (!empty($options['tags'])) {
             foreach ($options['tags'] as $key => $val) {
@@ -171,7 +171,7 @@ class Tracer implements \OpenTracing\Tracer
             }
         }
 
-        return new \Mix\Tracing\Zipkin\Scope\Scope($span);
+        return new \MixPlus\Tracing\Zipkin\Scope\Scope($span);
     }
 
     /**
@@ -213,7 +213,7 @@ class Tracer implements \OpenTracing\Tracer
             $rootSpan = $this->rootSpan = $tracer->newTrace();
         }
 
-        $span = new \Mix\Tracing\Zipkin\Span\Span($this, $rootSpan, $operationName);
+        $span = new \MixPlus\Tracing\Zipkin\Span\Span($this, $rootSpan, $operationName);
 
         if (!empty($options['tags'])) {
             foreach ($options['tags'] as $key => $val) {
@@ -273,7 +273,7 @@ class Tracer implements \OpenTracing\Tracer
         if ($extractedContext instanceof DefaultSamplingFlags) {
             return null;
         }
-        return new \Mix\Tracing\Zipkin\Span\SpanContext($this, $extractedContext);
+        return new \MixPlus\Tracing\Zipkin\Span\SpanContext($this, $extractedContext);
     }
 
     /**

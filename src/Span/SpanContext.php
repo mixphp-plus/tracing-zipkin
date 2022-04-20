@@ -1,14 +1,14 @@
 <?php
 
-namespace Mix\Tracing\Zipkin\Span;
+namespace MixPlus\Tracing\Zipkin\Span;
 
-use Mix\Tracing\Zipkin\Tracer;
+use MixPlus\Tracing\Zipkin\Tracer;
 use Traversable;
 use Zipkin\Propagation\TraceContext;
 
 /**
  * Class SpanContext
- * @package Mix\Tracing\Zipkin\Span
+ * @package MixPlus\Tracing\Zipkin\Span
  */
 class SpanContext implements \OpenTracing\SpanContext
 {

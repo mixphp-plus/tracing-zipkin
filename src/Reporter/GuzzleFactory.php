@@ -1,6 +1,6 @@
 <?php
 
-namespace Mix\Tracing\Zipkin\Reporter;
+namespace MixPlus\Tracing\Zipkin\Reporter;
 
 use GuzzleHttp\Client as HttpClient;
 use Zipkin\Reporters\Http\ClientFactory;
@@ -8,7 +8,7 @@ use RuntimeException;
 
 /**
  * Class GuzzleFactory
- * @package Mix\Tracing\Zipkin\Reporter
+ * @package MixPlus\Tracing\Zipkin\Reporter
  */
 class GuzzleFactory implements ClientFactory
 {

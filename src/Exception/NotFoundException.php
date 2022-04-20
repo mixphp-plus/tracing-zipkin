@@ -1,10 +1,10 @@
 <?php
 
-namespace Mix\Tracing\Zipkin\Exception;
+namespace MixPlus\Tracing\Zipkin\Exception;
 
 /**
  * Class NotFoundException
- * @package Mix\Tracing\Zipkin\Exception
+ * @package MixPlus\Tracing\Zipkin\Exception
  */
 class NotFoundException extends \RuntimeException
 {

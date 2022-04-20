@@ -1,12 +1,12 @@
 <?php
 
-namespace Mix\Tracing\Zipkin\Scope;
+namespace MixPlus\Tracing\Zipkin\Scope;
 
 use OpenTracing\Span;
 
 /**
  * Class Scope
- * @package Mix\Tracing\Zipkin\Scope
+ * @package MixPlus\Tracing\Zipkin\Scope
  */
 class Scope implements \OpenTracing\Scope
 {
