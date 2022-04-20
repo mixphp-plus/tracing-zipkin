@@ -17,8 +17,7 @@ composer require mix-plus/tracing-zipkin
 # 使用
 中间件直接引入
 ```php
-$func = \App\Middleware\TracingWebServer::middleware();
-$vega->handle('/hello', $func, [new Hello(), 'index'])->methods('GET');
+$vega->use(\MixPlus\Tracing\Http\TracingWebServer::middleware());
 ```
 
 文档：
