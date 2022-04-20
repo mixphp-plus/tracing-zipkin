@@ -18,7 +18,7 @@
   ],
   "require": {
     "php": ">=7.2.0",
-    "mix-plus/opentracing": "dev-master",
+    "mix-plus/opentracing": "^3.0",
     "openzipkin/zipkin": "^3.0",
     "mix/guzzle": "~2.2.0",
     "mix/bean": "~2.2.0",
