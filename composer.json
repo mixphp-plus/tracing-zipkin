@@ -1,5 +1,5 @@
 {
-  "name": "mix/tracing-zipkin",
+  "name": "mix-plus/tracing-zipkin",
   "description": "Zipkin tracing library based on Opentracing standard",
   "type": "library",
   "keywords": [
